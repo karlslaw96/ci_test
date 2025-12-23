@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 class Home extends BaseController
@@ -12,5 +13,9 @@ class Home extends BaseController
     {
         return view('segunda_vista');
     }
-}
 
+    public function terceraVista()
+    {
+        return view('tercera_vista');
+    }
+}

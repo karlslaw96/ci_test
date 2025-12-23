@@ -37,7 +37,7 @@
         }
 
         /* =========================
-           FONDO NOCTUA (ESTATICO)
+           FONDO NOCTUA (ESTÁTICO)
         ========================= */
         body {
             background:
@@ -49,7 +49,7 @@
         }
 
         /* =========================
-           ROTOR CIRCULAR (CLAVE)
+           ROTOR CIRCULAR
         ========================= */
         .rotor {
             position: absolute;
@@ -111,10 +111,17 @@
         }
 
         /* =========================
-           BOTON
+           BOTONES
         ========================= */
-        .btn {
+        .actions {
             margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .btn {
             display: inline-block;
             padding: 14px 42px;
             border-radius: 40px;
@@ -128,9 +135,21 @@
             transition: all 0.3s ease;
         }
 
+        .btn.secondary {
+            background: transparent;
+            color: var(--brown);
+            border: 1px solid rgba(75, 54, 33, 0.4);
+            box-shadow: none;
+        }
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 16px 35px rgba(75, 54, 33, 0.6);
+        }
+
+        .btn.secondary:hover {
+            background: rgba(75, 54, 33, 0.05);
+            box-shadow: none;
         }
 
         /* =========================
@@ -149,7 +168,7 @@
 
 <body>
 
-    <!-- ROTOR CIRCULAR -->
+    <!-- ROTOR -->
     <div class="rotor"></div>
 
     <!-- CONTENIDO -->
@@ -157,9 +176,17 @@
         <div class="title">Vista estilo Noctua</div>
         <div class="subtitle">Silencio · Ingeniería · Función</div>
 
-        <a href="<?= base_url('/'); ?>" class="btn">
-            Volver
-        </a>
+        <div class="actions">
+            <!-- Ir a tercera vista -->
+            <a href="<?= base_url('tercera_vista'); ?>" class="btn">
+                Entrar a NeoTokyo
+            </a>
+
+            <!-- Volver al inicio -->
+            <a href="<?= base_url('/'); ?>" class="btn secondary">
+                Volver
+            </a>
+        </div>
     </div>
 
     <div class="footer">

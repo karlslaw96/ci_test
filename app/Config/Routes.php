@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('segunda_vista', 'Home::segundaVista');
+$routes->get('tercera_vista', 'Home::terceraVista');
