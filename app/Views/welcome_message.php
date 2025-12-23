@@ -234,7 +234,7 @@
         <div class="title">EL RAYO MACQUIN</div>
 
         <div class="subtitle">
-            PSICODELIA • VAPORWAVE • CODEIGNITER
+            PSICODELIA • VAPORWAVE • CODEIGNITER • CHORIPANES
         </div>
 
         <!-- BOTÓN A SEGUNDA VISTA -->
