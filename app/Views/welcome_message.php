@@ -32,9 +32,9 @@
         body {
             background: linear-gradient(135deg,
                     #ff00cc,
-                    #3333ff,
+                    #333333,
                     #00ffff,
-                    #ffcc00);
+                    #CC0000);
             background-size: 400% 400%;
             animation: bgMove 12s ease infinite;
             display: flex;
