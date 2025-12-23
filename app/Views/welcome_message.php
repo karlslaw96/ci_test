@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>EL RAYO MACQUIN</title>
+    <title>EL RAYO MACQUIN Y EL GOLAZO DE RIQUELME</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Font Vaporwave -->
