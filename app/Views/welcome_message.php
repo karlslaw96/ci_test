@@ -206,14 +206,14 @@
     <div class="grid"></div>
 
     <div class="container">
-        <div class="title">EL RAZO MQUIN</div>
+        <div class="title">EL RAYO MACQUIN</div>
         <div class="subtitle">
             PSICODELIA • VAPORWAVE • CODEIGNITER
         </div>
     </div>
 
     <div class="footer">
-        <?= date('Y'); ?> · REALIDAD DISTORSIONADA ACTIVADA
+        <?= date('Y'); ?> · REALIDAD DISTORSIONADA ACTIVADA y la gallina que cacarea es la que pone el huevo
     </div>
 
 </body>
