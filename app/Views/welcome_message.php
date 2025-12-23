@@ -65,7 +65,8 @@
             bottom: 0;
             width: 200%;
             height: 50%;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
             background-size: 40px 40px;
             transform: perspective(500px) rotateX(60deg);
@@ -93,7 +94,7 @@
         }
 
         /* =========================
-           TEXTO GLITCH
+           CONTENIDO
         ========================= */
         .container {
             position: relative;
@@ -191,6 +192,30 @@
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
 
+        /* =========================
+           BOTÓN
+        ========================= */
+        .btn-vapor {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #ff00cc, #00ffff);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-vapor:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 0, 204, 1);
+        }
+
         .footer {
             position: absolute;
             bottom: 20px;
@@ -207,16 +232,24 @@
 
     <div class="container">
         <div class="title">EL RAYO MACQUIN</div>
+
         <div class="subtitle">
             PSICODELIA • VAPORWAVE • CODEIGNITER
         </div>
+
+        <!-- BOTÓN A SEGUNDA VISTA -->
+        <a href="<?= base_url('segunda_vista'); ?>" class="btn-vapor">
+            Entrar a la segunda vista
+        </a>
     </div>
 
     <div class="footer">
-        <?= date('Y'); ?> · REALIDAD DISTORSIONADA ACTIVADA y la gallina que cacarea es la que pone el huevo
+        <?= date('Y'); ?> · REALIDAD DISTORSIONADA ACTIVADA ·
+        la gallina que cacarea es la que pone el huevo
     </div>
 
 </body>
-<!-- este es un comentario  a las 11:03 am el dia 23/12/2025-->
+
+<!-- comentario: 23/12/2025 11:03 AM -->
 
 </html>
