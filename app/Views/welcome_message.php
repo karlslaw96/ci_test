@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>EL RAZO MQUIN</title>
+    <title>EL RAYO MACQUIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Font Vaporwave -->
@@ -111,7 +111,7 @@
 
         .title::before,
         .title::after {
-            content: 'EL RAZO MQUIN';
+            content: 'EL RAYO MACQUIN';
             position: absolute;
             left: 0;
             width: 100%;
