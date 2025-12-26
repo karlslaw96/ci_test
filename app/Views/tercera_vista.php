@@ -6,8 +6,9 @@
     <title>ShiroTokyo // Third View</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Fuentes: sobrio + japonés display -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Share+Tech+Mono&display=swap"
+    <!-- Fuentes: japonés + lectura -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -27,216 +28,202 @@
 
         body {
             overflow: hidden;
-            font-family: 'Share Tech Mono', monospace;
         }
 
         :root {
-            --paper: #fbfbf7;
-            --paper2: #f2f2ea;
-            --ink: #111114;
-            --muted: rgba(17, 17, 20, .62);
+            /* tradicional japonés */
+            --washi1: #faf7f1;
+            --washi2: #f3efe6;
+            --ink: #141312;
+            --inkSoft: rgba(20, 19, 18, .70);
 
-            --red: #cc0000;
-            --red2: #a80000;
+            --vermillion: #c1121f;
+            /* aka / bermellón */
+            --gold: #c8a45a;
+            --wood: #a07d4f;
+            --wood2: #8a6a42;
 
-            --line: rgba(17, 17, 20, .12);
-            --shadow: 0 22px 55px rgba(0, 0, 0, .12);
+            --line: rgba(20, 19, 18, .18);
+            --shadow: 0 26px 70px rgba(0, 0, 0, .20);
         }
 
         /* =========================
-           BACKGROUND PAPER
+           BACKGROUND: washi + patrones
         ========================= */
         body {
-            background:
-                radial-gradient(1200px 700px at 20% 18%, rgba(204, 0, 0, .06), transparent 55%),
-                radial-gradient(900px 520px at 88% 78%, rgba(0, 0, 0, .04), transparent 58%),
-                linear-gradient(180deg, var(--paper), var(--paper2));
+            font-family: 'Zen Maru Gothic', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
             color: var(--ink);
             display: grid;
             place-items: center;
+            background:
+                radial-gradient(1100px 700px at 20% 18%, rgba(193, 18, 31, .08), transparent 55%),
+                radial-gradient(900px 520px at 86% 78%, rgba(20, 19, 18, .06), transparent 58%),
+                linear-gradient(180deg, var(--washi1), var(--washi2));
             position: relative;
         }
 
-        /* Paper grain */
-        .grain {
+        /* grano de papel */
+        .washi-grain {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            opacity: 0.06;
-            background-image: radial-gradient(circle, rgba(0, 0, 0, .35) 1px, transparent 1px);
-            background-size: 3px 3px;
-            filter: blur(0.2px);
+            opacity: .12;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 0, 0, .14) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(0, 0, 0, .10) 1px, transparent 1px);
+            background-size: 4px 4px, 5px 5px;
             mix-blend-mode: multiply;
+            filter: blur(.2px);
         }
 
-        /* =========================
-           BIG VERTICAL KANJI SIDES
-           (Poster look)
-        ========================= */
-        .kanji-side {
+        /* patrón seigaiha (olas) arriba */
+        .pattern-seigaiha {
             position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 160px;
-            pointer-events: none;
-            display: grid;
-            place-items: center;
-            opacity: .14;
-        }
-
-        .kanji-side.left {
             left: 0;
-            border-right: 1px solid var(--line);
-            background: linear-gradient(180deg, rgba(204, 0, 0, .06), transparent);
-        }
-
-        .kanji-side.right {
             right: 0;
-            border-left: 1px solid var(--line);
-            background: linear-gradient(180deg, rgba(0, 0, 0, .04), transparent);
-        }
-
-        .kanji {
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            letter-spacing: 2px;
-            font-size: 56px;
-            line-height: 1;
-            user-select: none;
-        }
-
-        /* A small red seal stamp vibe */
-        .seal {
-            position: absolute;
-            bottom: 22px;
-            left: 22px;
-            width: 62px;
-            height: 62px;
-            border: 2px solid rgba(204, 0, 0, .65);
-            border-radius: 10px;
-            display: grid;
-            place-items: center;
-            transform: rotate(-6deg);
-            opacity: .9;
-            background: rgba(204, 0, 0, .06);
+            top: 0;
+            height: 220px;
             pointer-events: none;
+            opacity: .18;
+            background:
+                radial-gradient(circle at 12px 14px, transparent 11px, rgba(20, 19, 18, .18) 12px, transparent 13px) 0 0/24px 24px,
+                radial-gradient(circle at 12px 14px, transparent 6px, rgba(193, 18, 31, .16) 7px, transparent 8px) 0 0/24px 24px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
         }
 
-        .seal span {
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-            font-weight: 800;
-            color: rgba(204, 0, 0, .85);
-            letter-spacing: 2px;
-            font-size: 14px;
-            font-family: 'Share Tech Mono', monospace;
+        /* patrón asanoha (cáñamo) abajo */
+        .pattern-asanoha {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 240px;
+            pointer-events: none;
+            opacity: .12;
+            background:
+                linear-gradient(60deg, rgba(20, 19, 18, .22) 2px, transparent 2px) 0 0/34px 34px,
+                linear-gradient(-60deg, rgba(20, 19, 18, .22) 2px, transparent 2px) 0 0/34px 34px,
+                linear-gradient(0deg, rgba(193, 18, 31, .16) 2px, transparent 2px) 0 0/34px 34px;
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
         }
 
         /* =========================
-           MAIN POSTER CARD
+           ESCENA: marco shoji + panel
         ========================= */
-        .poster {
-            position: relative;
+        .scene {
             width: min(980px, 92vw);
-            height: min(560px, 86vh);
-            background: rgba(255, 255, 255, .58);
-            border: 1px solid var(--line);
+            height: min(600px, 86vh);
+            position: relative;
             border-radius: 26px;
             box-shadow: var(--shadow);
             overflow: hidden;
+            background: rgba(255, 255, 255, .55);
+            border: 1px solid rgba(20, 19, 18, .16);
         }
 
-        /* inner paper lines */
-        .poster::before {
+        /* marco madera */
+        .scene::before {
             content: "";
             position: absolute;
             inset: 0;
+            border-radius: 26px;
+            border: 10px solid rgba(160, 125, 79, .55);
+            box-shadow:
+                inset 0 0 0 2px rgba(20, 19, 18, .10),
+                inset 0 0 0 12px rgba(138, 106, 66, .10);
+            pointer-events: none;
+        }
+
+        /* rejilla shoji */
+        .shoji {
+            position: absolute;
+            inset: 18px;
+            border-radius: 18px;
             background:
-                linear-gradient(to bottom, rgba(0, 0, 0, .035), transparent 40%),
+                /* líneas verticales */
+                repeating-linear-gradient(to right,
+                    rgba(20, 19, 18, .12) 0px,
+                    rgba(20, 19, 18, .12) 1px,
+                    transparent 1px,
+                    transparent 72px),
+                /* líneas horizontales */
                 repeating-linear-gradient(to bottom,
-                    rgba(0, 0, 0, .03) 0px,
-                    rgba(0, 0, 0, .03) 1px,
-                    transparent 2px,
-                    transparent 10px);
-            opacity: 0.18;
-            pointer-events: none;
+                    rgba(20, 19, 18, .10) 0px,
+                    rgba(20, 19, 18, .10) 1px,
+                    transparent 1px,
+                    transparent 66px),
+                linear-gradient(180deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .48));
+            border: 1px solid rgba(20, 19, 18, .12);
         }
 
-        /* red corner accent */
-        .poster::after {
-            content: "";
-            position: absolute;
-            top: -120px;
-            right: -120px;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(204, 0, 0, .22), transparent 60%);
-            pointer-events: none;
-        }
-
-        /* =========================
-           JAPAN FLAG CIRCLE (replaces koi)
-        ========================= */
-        .hinomaru {
-            position: absolute;
-            right: 26px;
-            bottom: 22px;
-            width: 220px;
-            height: 220px;
-            pointer-events: none;
-            z-index: 3;
-            filter: drop-shadow(0 16px 28px rgba(0, 0, 0, .10));
-        }
-
-        /* A subtle “brush/ink” ring + red disc */
-        .hinomaru::before {
-            content: "";
+        /* pinceladas sumi-e en esquinas */
+        .sumi {
             position: absolute;
             inset: 0;
-            border-radius: 50%;
-            background:
-                radial-gradient(circle, rgba(204, 0, 0, .92) 0 46%, transparent 47%),
-                radial-gradient(circle, rgba(204, 0, 0, .10) 0 62%, transparent 63%);
-            opacity: .98;
-        }
-
-        /* Imperfect ink edge */
-        .hinomaru::after {
-            content: "";
-            position: absolute;
-            inset: 10px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 0, 0, .05), transparent 62%);
-            filter: blur(0.4px);
+            pointer-events: none;
             opacity: .55;
             mix-blend-mode: multiply;
         }
 
+        .sumi::before,
+        .sumi::after {
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border-radius: 50%;
+            filter: blur(0.2px);
+            opacity: .40;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(20, 19, 18, .28), transparent 60%),
+                radial-gradient(circle at 60% 70%, rgba(20, 19, 18, .18), transparent 62%),
+                radial-gradient(circle at 40% 60%, rgba(193, 18, 31, .14), transparent 60%);
+        }
+
+        .sumi::before {
+            left: -240px;
+            top: -240px;
+            transform: rotate(-10deg);
+        }
+
+        .sumi::after {
+            right: -260px;
+            bottom: -260px;
+            transform: rotate(14deg);
+        }
+
         /* =========================
-           HEADER
+           Header: estilo placita japonesa
         ========================= */
         .topbar {
             position: absolute;
-            top: 18px;
-            left: 18px;
-            right: 18px;
+            top: 26px;
+            left: 32px;
+            right: 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             z-index: 5;
         }
 
         .brand {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .brand .jp {
+            font-family: 'Shippori Mincho', serif;
+            font-weight: 700;
             letter-spacing: 3px;
-            font-size: .92rem;
-            text-transform: uppercase;
-            color: rgba(17, 17, 20, .9);
+            font-size: 1.05rem;
+        }
+
+        .brand .es {
+            font-size: .82rem;
+            color: var(--inkSoft);
+            letter-spacing: 1px;
         }
 
         .time {
@@ -245,64 +232,75 @@
             gap: 10px;
             padding: 10px 14px;
             border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .65);
-            color: rgba(17, 17, 20, .72);
-            font-size: .82rem;
+            border: 1px solid rgba(20, 19, 18, .18);
+            background: rgba(250, 247, 241, .75);
+            color: rgba(20, 19, 18, .78);
+            font-size: .86rem;
+            backdrop-filter: blur(4px);
         }
 
-        .time .dot {
-            width: 9px;
-            height: 9px;
+        .time .sun {
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background: var(--red);
-            box-shadow: 0 0 0 3px rgba(204, 0, 0, .10);
+            background: var(--vermillion);
+            box-shadow: 0 0 0 3px rgba(193, 18, 31, .12);
         }
 
         /* =========================
-           CENTER CONTENT
+           Contenido central
         ========================= */
-        .center {
+        .content {
             position: absolute;
             inset: 0;
             display: grid;
             place-items: center;
-            padding: 78px 26px 88px;
+            padding: 110px 26px 110px;
             text-align: center;
-            z-index: 5;
+            z-index: 6;
         }
 
         .title {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            letter-spacing: 6px;
-            font-size: clamp(2.0rem, 4.8vw, 3.6rem);
-            line-height: 1.05;
-            text-transform: uppercase;
+            font-family: 'Shippori Mincho', serif;
+            font-weight: 700;
+            font-size: clamp(2.1rem, 4.8vw, 3.7rem);
+            letter-spacing: 2px;
+            line-height: 1.08;
         }
 
-        .subtitle {
-            margin-top: 14px;
-            color: var(--muted);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: .92rem;
+        .title small {
+            display: block;
+            margin-top: 10px;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: clamp(.95rem, 1.8vw, 1.1rem);
+            color: var(--inkSoft);
         }
 
         .divider {
             margin: 22px auto 0;
-            width: min(420px, 78vw);
+            width: min(520px, 82vw);
             height: 2px;
             border-radius: 999px;
-            background: linear-gradient(90deg, transparent, rgba(204, 0, 0, .75), transparent);
-            opacity: .85;
+            background: linear-gradient(90deg, transparent, rgba(193, 18, 31, .70), transparent);
+            opacity: .90;
+        }
+
+        /* haiku-ish */
+        .haiku {
+            margin: 18px auto 0;
+            width: min(720px, 90vw);
+            color: rgba(20, 19, 18, .72);
+            font-size: .98rem;
+            line-height: 1.65;
         }
 
         /* =========================
-           BUTTONS (japanese poster vibe)
+           Botones estilo "placa" / madera
         ========================= */
         .actions {
-            margin-top: 34px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
             gap: 14px;
@@ -315,139 +313,234 @@
             justify-content: center;
             gap: 10px;
             padding: 14px 18px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .70);
+            border-radius: 14px;
+            border: 1px solid rgba(20, 19, 18, .18);
+            background:
+                linear-gradient(180deg, rgba(160, 125, 79, .22), rgba(160, 125, 79, .12)),
+                radial-gradient(600px 120px at 20% 0%, rgba(255, 255, 255, .35), transparent 60%);
             text-decoration: none;
-            color: rgba(17, 17, 20, .92);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            letter-spacing: 2px;
-            font-size: .78rem;
-            text-transform: uppercase;
+            color: rgba(20, 19, 18, .92);
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
             transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            border-color: rgba(204, 0, 0, .35);
-            box-shadow: 0 14px 26px rgba(204, 0, 0, .08);
+            border-color: rgba(193, 18, 31, .35);
+            box-shadow: 0 18px 34px rgba(0, 0, 0, .12);
         }
 
         .btn.primary {
-            background: linear-gradient(180deg, rgba(204, 0, 0, .14), rgba(204, 0, 0, .08));
-            border-color: rgba(204, 0, 0, .35);
+            background:
+                linear-gradient(180deg, rgba(193, 18, 31, .18), rgba(193, 18, 31, .10)),
+                radial-gradient(600px 120px at 20% 0%, rgba(255, 255, 255, .35), transparent 60%);
+            border-color: rgba(193, 18, 31, .32);
         }
 
-        .kbd {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: .74rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            border: 1px solid rgba(17, 17, 20, .14);
-            background: rgba(255, 255, 255, .65);
-            opacity: .9;
+        .tag {
+            font-family: 'Shippori Mincho', serif;
+            padding: 2px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(20, 19, 18, .16);
+            background: rgba(250, 247, 241, .70);
+            font-size: .82rem;
+            opacity: .95;
         }
 
         /* =========================
-           FOOTER
+           Caligrafía vertical grande (kanji)
+        ========================= */
+        .kanji-vertical {
+            position: absolute;
+            top: 78px;
+            bottom: 70px;
+            width: 120px;
+            display: grid;
+            place-items: center;
+            opacity: .22;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .kanji-vertical.left {
+            left: 26px;
+        }
+
+        .kanji-vertical.right {
+            right: 26px;
+        }
+
+        .kanji-vertical .kanji {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-family: 'Shippori Mincho', serif;
+            font-weight: 700;
+            font-size: 54px;
+            letter-spacing: 2px;
+            color: rgba(20, 19, 18, .85);
+            filter: blur(.0px);
+        }
+
+        /* =========================
+           Hanko (sello rojo)
+        ========================= */
+        .hanko {
+            position: absolute;
+            right: 42px;
+            bottom: 42px;
+            width: 94px;
+            height: 94px;
+            border-radius: 16px;
+            border: 2px solid rgba(193, 18, 31, .70);
+            background:
+                linear-gradient(180deg, rgba(193, 18, 31, .12), rgba(193, 18, 31, .05));
+            display: grid;
+            place-items: center;
+            transform: rotate(-8deg);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, .14);
+            z-index: 7;
+        }
+
+        .hanko span {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-family: 'Shippori Mincho', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 16px;
+            color: rgba(193, 18, 31, .88);
+        }
+
+        /* =========================
+           Footer discreto
         ========================= */
         .footer {
             position: absolute;
-            left: 18px;
-            right: 18px;
-            bottom: 16px;
+            left: 32px;
+            right: 32px;
+            bottom: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            color: rgba(17, 17, 20, .62);
-            font-size: .78rem;
-            z-index: 5;
+            gap: 12px;
+            z-index: 6;
+            color: rgba(20, 19, 18, .70);
+            font-size: .86rem;
         }
 
-        .badge {
+        .footer .pill {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 12px;
+            padding: 10px 14px;
             border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .62);
+            border: 1px solid rgba(20, 19, 18, .16);
+            background: rgba(250, 247, 241, .72);
+            backdrop-filter: blur(4px);
         }
 
-        .badge .chip {
+        .dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--red);
+            background: var(--vermillion);
+            box-shadow: 0 0 0 3px rgba(193, 18, 31, .10);
         }
 
         /* =========================
-           RESPONSIVE
+           Responsive
         ========================= */
-        @media (max-width: 640px) {
-            .kanji-side {
-                width: 92px;
+        @media (max-width: 720px) {
+            .kanji-vertical {
+                width: 82px;
+                opacity: .18;
             }
 
-            .kanji {
-                font-size: 42px;
+            .kanji-vertical .kanji {
+                font-size: 40px;
             }
 
-            .hinomaru {
-                width: 170px;
-                height: 170px;
-                right: 14px;
-                bottom: 14px;
+            .topbar {
+                left: 22px;
+                right: 22px;
+            }
+
+            .footer {
+                left: 22px;
+                right: 22px;
+            }
+
+            .hanko {
+                right: 22px;
+                bottom: 22px;
+                width: 82px;
+                height: 82px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="grain"></div>
+    <div class="washi-grain" aria-hidden="true"></div>
+    <div class="pattern-seigaiha" aria-hidden="true"></div>
+    <div class="pattern-asanoha" aria-hidden="true"></div>
 
-    <!-- Vertical kanji sides -->
-    <div class="kanji-side left">
-        <div class="kanji">東京</div>
-    </div>
-    <div class="kanji-side right">
-        <div class="kanji">日本</div>
-    </div>
+    <div class="scene" role="region" aria-label="ShiroTokyo Third View">
+        <div class="shoji" aria-hidden="true"></div>
+        <div class="sumi" aria-hidden="true"></div>
 
-    <div class="seal"><span>判<br>子</span></div>
-
-    <div class="poster" role="region" aria-label="ShiroTokyo View">
         <div class="topbar">
-            <div class="brand">SHIROTOKYO / SYSTEM</div>
-            <div class="time"><span class="dot"></span> <?= date('H:i'); ?></div>
+            <div class="brand">
+                <div class="jp">白東京 · SHIROTOKYO</div>
+                <div class="es">Tercera vista · estética japonesa tradicional</div>
+            </div>
+            <div class="time"><span class="sun"></span> <?= date('H:i'); ?></div>
         </div>
 
-        <div class="center">
+        <div class="kanji-vertical left" aria-hidden="true">
+            <div class="kanji">和<br>風</div>
+        </div>
+
+        <div class="kanji-vertical right" aria-hidden="true">
+            <div class="kanji">東<br>京</div>
+        </div>
+
+        <div class="content">
             <div>
-                <div class="title">TOKYO POSTER</div>
-                <div class="subtitle">minimal · white · red accents</div>
+                <div class="title">
+                    東京の空気
+                    <small>Un rincón de Japón, en tu tercera vista</small>
+                </div>
+
                 <div class="divider"></div>
+
+                <div class="haiku">
+                    Papel de arroz, tinta y madera.<br>
+                    Olas en silencio, luz bermellón.<br>
+                    Hoy también: calma.
+                </div>
 
                 <div class="actions">
                     <a class="btn primary" href="<?= base_url('/'); ?>">
-                        Volver <span class="kbd">HOME</span>
+                        Volver <span class="tag">ホーム</span>
                     </a>
 
                     <a class="btn" href="<?= base_url('segunda_vista'); ?>">
-                        Ir a Noctua <span class="kbd">ALT</span>
+                        Ir a Noctua <span class="tag">夜</span>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Hinomaru (Japan flag circle) -->
-        <div class="hinomaru" aria-hidden="true"></div>
+        <div class="hanko" aria-hidden="true">
+            <span>判<br>子</span>
+        </div>
 
         <div class="footer">
-            <div class="badge"><span class="chip"></span> © <?= date('Y'); ?> · Third View</div>
-            <div class="badge">和 · TOKYO</div>
+            <div class="pill"><span class="dot"></span> © <?= date('Y'); ?> · Third View</div>
+            <div class="pill">和 · Washi · Shoji</div>
         </div>
     </div>
 </body>
